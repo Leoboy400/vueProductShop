@@ -4,11 +4,18 @@ import MyCadrs from "./components/MyCadrs.vue";
 import MySearch from "./components/MySearch.vue";
 import MyBasket from "./components/MyBasket.vue";
 import MyModal from "./components/MyModal.vue";
-import { ref } from "vue";
+import { ref, computed, watch } from "vue";
 const visbleModal = ref(false);
 const toggleVisble = () => {
   visbleModal.value = !visbleModal.value;
 };
+watch(visbleModal, () => {
+  if (visbleModal.value === true) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "visible";
+  }
+});
 </script>
 
 <template>
@@ -33,10 +40,11 @@ const toggleVisble = () => {
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 ul {
   list-style: none;
 }
+
 .footer {
   background-color: rgb(65, 65, 65);
   color: #fff;
@@ -50,6 +58,7 @@ ul {
     align-items: center;
   }
 }
+
 .header {
   padding-top: 10px;
 }

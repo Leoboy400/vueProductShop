@@ -15,8 +15,10 @@
           </MyButton>
         </li>
       </ul>
-      <MyButton @click="" class="btn__pay" :msg="'Купить'"></MyButton>
-      <p>{{ storeBasket.fullPrice }}</p>
+      <div class="pay__block">
+        <MyButton @click="" class="btn__pay" :msg="'Купить'"></MyButton>
+        <p>{{ storeBasket.fullPrice }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -32,6 +34,16 @@ function toggle() {
 }
 </script>
 <style scoped lang="scss">
+.pay__block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  p {
+    color: red;
+    font-size: 25px;
+    font-weight: 500;
+  }
+}
 .pay {
   list-style: none;
 
