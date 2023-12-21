@@ -15,12 +15,10 @@ export const useStoreBasket = defineStore('basket', () => {
                 basketData.value.push({ ...e, productId });
             }
         })
-        console.log(basketData.value)
     }
 
     function removeInBasket(id) {
         basketData.value = basketData.value.filter(e => e.productId !== id)
-        console.log(basketData.value)
     }
 
     const fullPrice = computed(() => {
